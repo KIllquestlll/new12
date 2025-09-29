@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
     <title>Document</title>
 </head>
+{% comment %} ЛОГИН ОТ АДМИНКИ
+              mika
+              123 {% endcomment %}
 <body>
     <header>
         <nav>
@@ -17,5 +20,6 @@
             </ul>
         </nav>
     </header>
+    {% block content %}{% endblock%}
 </body>
 </html>
