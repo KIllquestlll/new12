@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
     <title>Document</title>
 </head>
+{% comment %} ЛОГИН ОТ АДМИНКИ
+              mika
+              123 {% endcomment %}
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="{% url "index" %}">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
+    {% block content %}{% endblock%}
 </body>
 </html>

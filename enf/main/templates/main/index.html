@@ -1,3 +1,11 @@
 {% extends 'main/base.html' %}
+{%block content%}
+    {% for post in posts  %}
 
+        <h1>{{post.title}}</h1>
+        <p>{{post.description}}</p>
+        <img src="{{post.img.url}}" alt="">
+        <a href="{% url  'post_detail' pk=post.pk %}">кликни</a>
 
+    {% endfor %}
+{%endblock%}
