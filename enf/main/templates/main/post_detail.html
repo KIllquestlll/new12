@@ -1,8 +1,21 @@
 {% extends 'main/base.html'%}
 {% block content%}
-    
-    <h1>{{post.title}}</h1>
-    <p>{{post.description}}</p>
-    <img src="{{post.img.url}}" alt="">
-
+    <div class="container"> 
+        <div class="hero_content">
+            <div class="wrapper">
+                <div class="wrapper-content">
+                    <div class="left_wrap">
+                        <img src="{{post.img.url}}" alt="#">
+                    </div>
+                    <div class="right_wrap" id="text">   
+                        <h1>
+                            {{post.title}}                           
+                        </h1>
+                        <p>
+                            {{post.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
