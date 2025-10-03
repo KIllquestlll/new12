@@ -17,40 +17,45 @@
                 <li><a href="{%url 'index'%}">Главная</a></li>
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Создать пост</a></li>
-                <li><a id ="openModal2" href="#">Войти</a></li>
-                <li><a id="openModal" href="#">Регистрация</a></li>
-            </div>
-            <div class="popup-log" id="myModal">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout'%}">Выйти</a></li>
+                {%else%}
+                <li><a id="openLogin" href="#">Войти</a></li>
+                <li><a id="openRegister" href="#">Регистрация</a></li>
+                {%endif%}
+            </ul>
+            <div class="popup-log" id="RegisterModal">
                 <div class="popup_content">
-                    <form method="post">
+                    <form method="post" action="{% url 'register' %}">
                         {% csrf_token %}
-                        {{ form.as_p }}
                         <div class="input-group">
                             <label for="username">Login</label>
                             <input type="text" id="username" name="username" reaquired>
-                            <label for="pass">Password</label>
-                            <input type="password" id="pass" name="pass" required>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
                         </div>
-                         <button class="btn_reg" type="submit">Зарегистрироваться</button>
+                        <button class="btn_reg" type="submit">Зарегистрироваться</button>
                     </form>
-                <div class="sign-in" id="myModal2">
-                        <div class="popup_content">
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <div class="input-group">
-                                <label for="username">Login</label>
-                                <input type="text" id="username" name="username" reaquired>
-                                <label for="pass">Password</label>
-                                <input type="password" id="pass" name="pass" required>
-                            </div>
-                             <button class="btn_reg" type="submit">Войти</button>
-                </div>  
                 </div>
             </div>
+            <div class="popup-log" id="LoginModal">
+                    <div class="popup_content">
+                        <form method="post" action="{% url 'login'%}">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <label for="log_username">Login</label>
+                                <input type="text" id="log_username" name="username" reaquired>
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" required>
+                                <button class="btn_log" type="submit">Войти</button> 
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
     </header>
     {% block content %}{% endblock%}
-    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'main/js/app.js' %}"></script>
 </body>
 
 </html>
