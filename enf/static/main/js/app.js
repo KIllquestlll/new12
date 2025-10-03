@@ -1,6 +1,8 @@
 const modal = document.getElementById("RegisterModal");
 const openBtn = document.getElementById("openRegister");
 
+const modal2 = document.getElementById("LoginModal");
+const openBtn2 = document.getElementById("openLogin");
 
   openBtn.onclick = () => {
     modal.style.display = "flex";
@@ -12,10 +14,6 @@ const openBtn = document.getElementById("openRegister");
       modal.style.display = "none";
     }
   };
-
-const modal2 = document.getElementById("LoginModal");
-const openBtn2 = document.getElementById("openLogin");
-
 
   openBtn2.onclick = () => {
     modal2.style.display = "flex";

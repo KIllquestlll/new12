@@ -1,25 +1,32 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from . models import Post
+from . models import Post,Comment
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import User
 
 # Create your views here.
 
 def index(request):
+    # Вывод всех постов
+    # (На главную страницу)
+
     posts = Post.objects.all()
     return render(request, 'main/index.html',{'posts':posts})
 
 
 def post_detail(request,pk):
+    # Вывод постов
     post = get_object_or_404(Post,pk=pk)
-    return render(request,'main/post_detail.html',{'post':post})
+    comments = post.comments.all()
+    return render(request,'main/post_detail.html',{'post':post,'comments':comments})
 
 
 def logout_view(request):
+    # Выход с аккаунта
     logout(request)
     return redirect('index')
 
 def register_view(request):
+    # Форма для регистрации
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -34,6 +41,7 @@ def register_view(request):
 
 
 def login_view(request):
+    # форма для авторизации
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -46,4 +54,3 @@ def login_view(request):
             return render(request,'main/index.html',{'login_error':'Неверный логин или пароль'})
         
     return redirect('index')
-

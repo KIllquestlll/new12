@@ -11,11 +11,16 @@
                         <h1>
                             {{post.title}}                           
                         </h1>
-                        <p>
+                        <p class='description'>
                             {{post.description}}
                     </div>
                 </div>
             </div>
         </div>
+        <div class="comment_wrap"></div>
+            {%for comment in comments%}
+                <h1>{{comment.author}}</h1>
+                <p>{{comment.title}}</p>
+            {%endfor%}
     </div>
 {% endblock %}

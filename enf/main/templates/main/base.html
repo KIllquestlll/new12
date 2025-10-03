@@ -16,7 +16,9 @@
             <ul class="nav">
                 <li><a href="{%url 'index'%}">Главная</a></li>
                 <li><a href="#">О нас</a></li>
+                {%if request.path == '/' %}
                 <li><a href="#">Создать пост</a></li>
+                {% endif %}
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'logout'%}">Выйти</a></li>
                 {%else%}

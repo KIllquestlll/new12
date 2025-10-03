@@ -6,10 +6,12 @@ body {
     font-family: "Raleway", serif;
     list-style: none;
 }
+
 .container {
   max-width: 1110px;
   margin: 0 auto;
 }
+
 header {
     background-color: #333;
     color: white;
@@ -44,11 +46,12 @@ img {
     gap: 25px;
 
 }
-.right-wrap {
-    max-height: 100px; /* показываем только часть текста */
-    overflow: hidden;
-    position: relative;
-    transition: max-height 0.4s ease;
+.description{
+   text-align: justify;
+   hyphens: auto;
+}
+.right_wrap{
+    padding: 0px 15px 0px 0px;
 }
 .popup-log {
     background-color: #3737375e;
